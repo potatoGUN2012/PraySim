@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Pray sim </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
 <style>
+  body {
+    background: rgb(100,255,200);
+    font-family: sans-serif;
+  }
+  h1 {
+    font-family: serif;
+    color: yellow;
+    background: black;
+    padding: 15px;
+    text-align: center;
+  }
+  p {
+    display:inline;
+    font-weight: bold;
+    margin-left: 10px;
+    
+  }
+  .hud {
+    background: red;
+    width: 111px;
+    border: solid 4px black;
+    border-left: none;
+    border-right: none;
+  }
   
-</style>
+  </style>
 </head>
 <body>
-  <h1> Pray sim </h1>
-<script></script>
+  <h1>test</h1>
+  
+  <div id="display">
+    
+    <div class="hud">
+      <p id="faith">10</p>
+      <p id="energy">10</p>
+      <p id="morale">10</p>
+    </div>  
+    <br>
+  </div>
+  
+  <button onclick="myFunction()">Pray</button>
+  <button onclick="myFunction2()">Rest</button>
+  <button onclick="myFunction3()">Play</button>
+  
 </body>
+
+<script>
+  
+  
+  var object1 = 0;
+  var object2 = 2;
+  var faithResponse = ["You do a prayer, you feel closer to allah",
+                       "You read the Quran and appreciate your religion",
+                       "You recite dua, feeling protected",
+                       "You convince your fellow muslims to come pray with you",
+                       "You perform Dhikr"];
+  function  myFunction(){
+    let x = Math.random() * 5;
+    x = Math.round(x);
+    alert(x);
+    alert(faithResponse[x]);
+    object2 ++;
+    document.getElementById("faith").innerHTML = object2;
+      }
+  function myFunction2(){
+    object3 ++;
+    alert('You feel more relaxed and energized');
+    document.getElementById("energy").innerHTML = object2;
+      }
+  function myFunction3(){
+    object1 ++;
+    alert('You feel slightly happier');
+    document.getElementById("morale").innerHTML = object2;
+      }
+
+  
+  </script>
 </html>

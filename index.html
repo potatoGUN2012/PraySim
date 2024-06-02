@@ -74,7 +74,7 @@
   </style>
 </head>
 <body>
-  <h1>test</h1>
+  <h1>Praying simulator</h1>
   
   <div id="display">
     
@@ -97,41 +97,75 @@
 
 <script>
   
-
   
-  var object1 = 10;//Faith
-  var object2 = 10;//Energy
-  var object3 = 10;//Mood
+//Main stats
+  var object2 = 10;//Faith
+  var object3 = 15;//Energy
+  var object1 = 12;//Mood
   
+//Skills (WIP)
   var f1 = 10;//Faithfullness
   var e1 = 10;//Stamina
   var m1 = 10;//Mental Health
+//Randomness element (WIP)
   var dndroll;
   function randInteger(f1, e1, m1){
     
   }
+  
+//Text Response to doing an action
   var faithResponse = ["You do a prayer, you feel closer to allah",
                        "You read the Quran and appreciate your religion",
                        "You recite dua, feeling protected",
                        "You convince your fellow muslims to come pray with you",
                        "You perform Dhikr"];
+  var restResponse = ["You lay down for a bit, and your muscles relax",
+                      "You sit down and breathe for a bit, and your heart rate slows",
+                      "You drink some water... \n Refreshing",
+                      "You eat some healthy food, and feel energetic again",
+                      "You take a short power nap, and feel boosted with energy",
+                      "You drink some tea, and your sleepyness fades away"
+                     ];
+  var playResponse = ["You socialize with a friend",
+                      "You play some minecraft",
+                      "You draw some scenery",
+                      "You do some yoga",
+                      "You construct a lego building",
+                      "You commit a war cri- I mean eat some chips",
+                      "You go play some football",
+                      "You touch some grass :O"
+                     ];
+//Doing the main actions
   function  myFunction(){
     let x = Math.random() * 5;
     x = Math.round(x);
-    alert(x);
+    if (x===5) {x=4;}
+    alert(x); 
     alert(faithResponse[x]);
+    alert('You feel closer to Allah')
     object2 ++;
-    document.getElementById("faith").innerHTML = object2;
+    document.getElementById("w").innerHTML = object2;
       }
   function myFunction2(){
+    let x = Math.random() * 6;
+    x = Math.round(x);
+    if (x===6) {x=5;}
+    alert(x); 
+    alert(restResponse[x]);
     object3 ++;
     alert('You feel more relaxed and energized');
-    document.getElementById("energy").innerHTML = object2;
+    document.getElementById("a").innerHTML = object3;
       }
   function myFunction3(){
+    let x = Math.random() * 8;
+    x = Math.round(x);
+    if (x===8) {x=7;}
+    alert(x);
+    alert(playResponse[x]);
+    
     object1 ++;
     alert('You feel slightly happier');
-    document.getElementById("morale").innerHTML = object2;
+    document.getElementById("s").innerHTML = object1;
       }
 
   

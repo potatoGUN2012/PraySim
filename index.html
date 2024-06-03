@@ -17,7 +17,47 @@ body, html {height: 100%}
 }
   a {
     all: inherit;
-  }
+ display: inline-block;
+  position: relative;
+  transition: transform .7s ease;
+}
+
+
+a::before,
+a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: #6849e3;
+}
+
+a:hover::before,
+a:hover::after {
+ animation-name: slide;
+ animation-duration: .5s;
+ animation-iteration-count: 2;
+ animation-direction: alternate;
+}
+
+a::before {
+  top: 0;
+  right: 0;
+}
+
+a::after {
+  top: 100%;
+  left: 0;
+ 
+}
+a:hover{
+  color:white;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+}
+@keyframes slide {
+  from {width:0%}
+  to {width:100%}
+}
 </style>
 </head>
 <body>

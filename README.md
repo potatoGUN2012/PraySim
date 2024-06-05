@@ -4,7 +4,7 @@ It is short for Praying Simulator.
 In this game you have to pray as much as you can without depleting morale or energy.
 
 This game is not intended to be offensive,  (this is serious)
-please email any complaints to idgaf@yourmom.com (this is a joke)
+please email any complaints to IwantAttention@hotmail.com (this is a joke)
 
 ## Current progress:
 - Homepage

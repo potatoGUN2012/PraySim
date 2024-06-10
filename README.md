@@ -4,10 +4,10 @@ It is short for Praying Simulator.
 In this game you have to pray as much as you can without depleting morale or energy.
 
 <!>
-Most images are not owned by me, and are liscened personally and cant be used commercially (which this isn't)
-ChatGPT and StackOverflow were obviously used, huge hats off to them
-This game is not intended to be offensive,  (this is serious)
-please email any complaints to IwantAttention@hotmail.com (this is a joke)
+Most images are not owned by me, and are liscened personally and cant be used commercially (which this isn't)  
+ChatGPT and StackOverflow were obviously used, huge hats off to them  
+This game is not intended to be offensive,  (this is serious)  
+please email any complaints to IwantAttention@hotmail.com (this is a joke)  
 
 ## Current progress:
 - Homepage

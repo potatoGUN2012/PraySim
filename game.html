@@ -19,6 +19,10 @@
   background-size: cover;
     overflow:hidden;
   }
+  :root {
+    --halfedsize: 50vw;
+    
+  }
   h1 {
     font-family: serif;
     font-style: italic;
@@ -53,23 +57,23 @@
     display : flex;
     align-items : center;
   }
-  img {
+  #e {
     width: 100px;
     height: 100px;
   }
   #w {
-    position:fixed;
-    top:190px;
-    left:50px
+    position:absolute;
+    top: 70%;
+    left: 40%;
   }
   #a {
-    position:fixed;
-    top:190px;
-    left:160px    
+    position: absolute;
+    top:70%;
+    left: 40%   
   }  #s {
-    position:fixed;
-    top:190px;
-    left:267px    
+    position: absolute;
+    top:70%;
+    left: 40%    
   }
   button {
                 display: inline-block;
@@ -104,13 +108,13 @@
     color:white;
     font-size: 90%; 
     opacity:1;
-    transition:opacity 2s; 
+    transition:opacity 2s ease-in-out; 
     border:solid 4px rgb(0,255,255,1);
     border-radius: 10px;
     box-shadow: 0px 4px 3px black;
     overflow: auto;
     vertical-align: center;
-    opacity:0; transition:opacity 2s; 
+    opacity:0; transition:opacity 2s ease-in-out; 
   }
 
   .farsan-regular {
@@ -131,14 +135,68 @@
     font-size: 15px;
     padding-left:5px;
   }
-  
+  .button:disabled {
+    background: rgb(0, 0, 0, 0.2);
   }
+  #dwheu {
+    border:5px solid black;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.5s ease, opacity 0.2s ease;
+    background-color: white;
+    opacity: 0.8;
+    
+  }
+  #dwheu:hover {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,border 0.5s ease-in-out ;
+    transform: translateY(-10px);
+    opacity: 1;
+    border: 5px solid yellow;
+  }
+  .shopCss {
+    background: url('https://t3.ftcdn.net/jpg/03/66/10/14/360_F_366101427_8yazUJK82fDrLi4YtpnQO3DJ4dTygxoe.jpg');
+    color: black;
+    font-family: serif;
+    border: 5px solid white;
+    padding: 10px;
+    position: absolute;
+    top: 5vh;
+    left: 20vw;
+    height: 80%;
+    width: 60vw;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  p.shopCss {
+    border: none;
+    background-color:none;
+    top: auto;
+    height: auto;
+    width: auto;
+    left: auto;
+    padding: 0px;
+    font-style: italic;
+    opacity: inherit;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  #eere {
+    background:brown;
+    margin:10px;
+    font-family: serif;
+    border-left: 15px solid black;
+    width: 69%;
+  }
+  
   </style>
 </head>
 <body>
+  
   <h1>Praying simulator</h1>
   
   <div id="display">
+    <!--<button id="eere">button</button> -->
     
     <div class="hud">
       <p id="faith"><img id="e" src="https://art.pixilart.com/sr255dec552f0aws3.png">
@@ -151,15 +209,45 @@
     <br>
   </div>
   
-  <button onclick="myFunction()">Pray</button>
-  <button onclick="myFunction2()">Rest</button>
-  <button onclick="myFunction3()">Play</button>
+  
+  <button class="button" onclick="myFunction()" type="button">Pray</button>
+  <button class="button" onclick="myFunction2()">Rest</button>
+  <button class="button" onclick="myFunction3()">Play</button>
+  <p id="wa"></p>  
   <!-- <div id="bxo"><p id="ear" class="farsan-regular">Dude wake up a new event just dropped on skibidi bro I ain't lying, and I if I keep going as you can see it doesn't end which is a huge W in the shat wont you say? \n skibid rizz baby gronks on gyat</p></div> -->
-</body>
+  <br>
+<br id="startButton">
+
+      <!--<button class="button" id="startButton">Turn dat shit off</button>-->
+<br>
+<br>
+  <img src="https://art.pixilart.com/sr292e32bad9aaws3.png" id="dwheu" onclick="openshop()">
+  </body>
 
 <script>
-  
-  
+  //https://coreui.io/blog/how-to-disable-a-button-in-javascript/
+  // First, get a reference to the button
+ const startButton = document.getElementById('startButton');
+        const buttons = document.querySelectorAll('.button');
+
+        function disableButtons() {
+            buttons.forEach(button => {
+                if (button.id !== 'startButton') {
+                    button.disabled = true;
+                }
+            });
+
+            // Enable buttons after 5 seconds (5000 milliseconds)
+            setTimeout(() => {
+                buttons.forEach(button => {
+                    button.disabled = false;
+                });
+            }, 5000);
+        }
+
+        startButton.addEventListener('click', disableButtons);
+// Then, disable the button
+
 //Main stats
   var object2 = 10;//Faith
   var object3 = 15;//Energy
@@ -169,12 +257,15 @@
   var f1 = 10;//Faithfullness
   var e1 = 10;//Stamina
   var m1 = 10;//Mental Health
+  
+//Turn
+  var turne = 0;
 //Randomness element (WIP)
   var dndroll;
   function randInteger(f1, e1, m1){
     
   }
-  
+
 //Text Response to doing an action
   var faithResponse = ["You do a prayer",
                        "You read the Quran and appreciate your religion",
@@ -197,18 +288,26 @@
                       "You go play some football",
                       "You touch some grass :O"
                      ];
+  var situations = ["A little sibling approaches you and asks you to play with them, but prayer time is nearing, what do you do?",
+                  "Your parent tells you to go study, but you are in the middle of a real-time game",
+                  "You are invited to go to your bully's Janazah, do you attend?",
+                  "Cyclones kill thousands in pakistan, you get an oppotunity to fly there and help them.",
+                  ""
+                   ];
+  function events(){}
+
   //Custom Alert
   function customAlert(message){
     //Credit to Chatgpt \/
         function createFloatingDiv(message) {
+          disableButtons();
             // Create the div element
             const div = document.createElement('div');
             div.id = 'bxo';
-          div.class = "farsan-regular;"
+          div.class = "farsan-regular;";
             div.innerHTML = "<br><p class='farsan-regular'>((!)) " + message +"</p>";
             // Append the div to the body
             document.body.appendChild(div);
-
 
             // Trigger the fade-in effect
             setTimeout(() => {
@@ -221,14 +320,51 @@
                 // Remove the div after the fade-out transition
                 setTimeout(() => {
                     div.remove();
-                }, 2000); // Match this to the transition duration
-            }, 4000); // Adjust this value to control how long the div stays visible
+                }, 3000); // Match this to the transition duration
+            }, 1500); // Adjust this value to control how long the div stays visible
+
         }
     createFloatingDiv(message);
 
   }
+
+    //The shop :)
+function openshop() {
+  var shopdata = "<button id='eere' onclick='justcloseitInnit()'>Doit</button>";
+  var shopPge = document.createElement('div');
+  shopPge.class = 'shopCss';
+              setTimeout(() => {
+                shopPge.style.opacity = 1;
+              
+            }, 100); // Slight delay to ensure the element is appended before the transition
+
+  shopPge.innerHTML = "<p class='shopCss'> Lorem ipsum " + shopdata + "</p>";
+  shopPge.classList.add("shopCss");
+  shopPge.id = "disDiv";
+    var cfx = document.createElement('div');
+  cfx.id = "we4";
+  cfx.style = "position: absolute; top: 0px; left: 0px; margin: 0px; height: 1000px; width: 1000px; background:rgb(0,0,0,0.5); ";
+  document.body.appendChild(cfx);
+  document.body.appendChild(shopPge);
+
+  
+}
+function justcloseitInnit(){
+  alert('huh');
+  var der69 = document.getElementById("we4");
+  der69.remove();
+  var order69 = document.getElementById("disDiv");
+  order69.remove();
+}
+  
   //Doing the main actions
+
+
   function  myFunction(){
+    //alert(object2);
+    turne ++;
+    document.getElementById("wa").innerHTML = turne;
+       if (turne===4) {alert('4');}
     let x = Math.random() * 5;
     x = Math.round(x);
     if (x===5) {x=4;}
@@ -237,31 +373,40 @@
     //alert('You feel closer to Allah')
     customAlert(faithResponse[x]);
     var iwok = "customAlert('You feel closer to Allah');";
-    setTimeout(iwok, 4000);
+    setTimeout(iwok, 2000);
     object2 ++;
     document.getElementById("w").innerHTML = object2;
-      }
+  }
+  
+  
   function myFunction2(){
+    turne ++;
+       if (turne===4) {alert('4');}
     let x = Math.random() * 6;
     x = Math.round(x);
     if (x===6) {x=5;}
     //alert(x); 
     customAlert(restResponse[x]);
     object3 ++;
-    var itok = " customAlert('You feel more relaxed and energized');"
-    setTimeout(itok, 4000);
+    var itok = " customAlert('You feel more relaxed and energized');";
+    setTimeout(itok, 2000);
     document.getElementById("a").innerHTML = object3;
       }
+  
+  
   function myFunction3(){
+    turne ++;
+       if (turne===4) {alert('4');}
     let x = Math.random() * 8;
     x = Math.round(x);
     if (x===8) {x=7;}
     //alert(x);
     customAlert(playResponse[x]);
-    var ifok = " customAlert('Your boredom fades a bit');"
-    setTimeout(ifok, 4000);
+    var ifok = " customAlert('Your boredom fades a bit');";
+    setTimeout(ifok, 2000);
     object1 ++;
-    alert('You feel slightly happier');
+    var idokd = "customAlert('You feel slightly less bored and happier');";
+    setTimeout(idokd, 2000);
     document.getElementById("s").innerHTML = object1;
       }
   

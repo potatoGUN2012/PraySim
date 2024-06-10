@@ -10,7 +10,7 @@ This game is not intended to be offensive,  (this is serious)
 please email any complaints to IwantAttention@hotmail.com (this is a joke)  
 
 ## Current progress:
-- Homepage
+- Homepage  
 - Rudimentary game screen
 - Working buttons and stats
 - Textures for events/backgrounds/Hud/etc
